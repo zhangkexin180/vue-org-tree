@@ -9,11 +9,10 @@
         :collapsable="collapsable"
         :render-content="renderContent"
         :label-class-name="labelClassName"
-        @on-expand="(e, data) => $emit('on-expand', e, data)"
-        @on-node-focus="(e, data) => $emit('on-node-focus', e, data)"
-        @on-node-click="(e, data) => $emit('on-node-click', e, data)"
-        @on-node-mouseover="(e, data) => $emit('on-node-mouseover', e, data)"
-        @on-node-mouseout="(e, data) => $emit('on-node-mouseout', e, data)"
+        :node-class-name="nodeClassName"
+        :children-class-name="childrenClassName"
+        @on-expand="(e, data) => {$emit('on-expand', e, data)}"
+        @on-node-click="(e, data) => {$emit('on-node-click', e, data)}"
       />
     </div>
   </div>
@@ -49,7 +48,9 @@ export default {
     renderContent: Function,
     labelWidth: [String, Number],
     labelClassName: [Function, String],
-    selectedClassName: [Function, String]
+    selectedClassName: [Function, String],
+    nodeClassName: [Function, String], //add by ivy
+    childrenClassName: [Function, String], //add by ivy
   }
 }
 </script>
